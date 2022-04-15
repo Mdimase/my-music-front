@@ -17,8 +17,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private readonly TOKEN = 'apiKey';
 
   constructor(private http: HttpClient){}
+
+  get token(){
+    return localStorage.getItem(this.TOKEN);
+  }
   
   // si el login es exitoso almaceno el token en el local storage
   // sino envio un mensaje de error
@@ -27,7 +32,7 @@ export class AuthenticationService {
       .pipe(map((res:any) => { //mapea la respuesta http a la variable res
         const token = res.headers.get("Authorization");
         if(token){
-          localStorage.setItem('apiKey',token);
+          localStorage.setItem(this.TOKEN,token);
         }
         return res;
       }));
@@ -35,6 +40,6 @@ export class AuthenticationService {
   
   //remove user form local storage
   logout() {
-    localStorage.removeItem('apiKey');
+    localStorage.removeItem(this.TOKEN);
   }
 }
