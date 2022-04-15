@@ -9,12 +9,14 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthenticationService } from './services/authentication.service';
 import { PlaylistsComponent } from './components/playlists/playlists.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PlaylistsComponent
+    PlaylistsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
