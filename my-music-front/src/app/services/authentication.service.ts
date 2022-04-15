@@ -20,19 +20,18 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient){}
   
-  //email y password son del body de la request
-  login(email: String, password: String):Observable<any>{ 
-  return this.http.post<any>(environment.API_URL + '/auth', {email,password} , {observe:'response'})
-    .pipe(map(res => {
-      //login succesfull con JWT token
-      if(res.headers.get("Authorization")){
-        //store user details y JWT token in local storage para mantener el usuario logeado
-        let r:any = res.headers.get("Authorization"); 
-        localStorage.setItem('apiKey',r);
-      }
-      return res;
-    }));
-}
+  // si el login es exitoso almaceno el token en el local storage
+  // sino envio un mensaje de error
+  login(email:string,password:string):Observable<any>{ 
+    return this.http.post<any>(environment.API_URL + '/auth', {email,password}  ,  {observe:'response'})
+      .pipe(map((res:any) => { //mapea la respuesta http a la variable res
+        const token = res.headers.get("Authorization");
+        if(token){
+          localStorage.setItem('apiKey',token);
+        }
+        return res;
+      }));
+  }
   
   //remove user form local storage
   logout() {

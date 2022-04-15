@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    const email:String = this.loginForm.get('email')?.value;
-    const password:String = this.loginForm.get('password')?.value;
+    const email:string = this.loginForm.get('email')?.value;
+    const password:string = this.loginForm.get('password')?.value;
     this.authenticationService.login(email,password)
       .subscribe({
         next:(data) => {  //body del response

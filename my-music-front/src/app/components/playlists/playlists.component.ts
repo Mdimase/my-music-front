@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { PlaylistsService } from '../../services/playlists.service';
-import { Observable } from 'rxjs';
 import { Playlist } from '../../models/playlist.model';
 import { AuthenticationService } from '../../services/authentication.service';
 
