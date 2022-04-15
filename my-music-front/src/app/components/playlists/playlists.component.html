@@ -6,8 +6,8 @@
             <th>Name</th>
         </tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let playlist of playlists">
+    <tbody *ngFor="let playlist of playlists">
+        <tr>
           <td> 
             {{ playlist.name }}
            </td>
