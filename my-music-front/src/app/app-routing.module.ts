@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { MainComponent } from './components/main/main.component';
 import { PlaylistsComponent } from './components/playlists/playlists.component';
 
 //modulo de navegacion. reglas de navegacion
@@ -9,7 +10,7 @@ import { PlaylistsComponent } from './components/playlists/playlists.component';
 const routes: Routes = [
   { path:'', redirectTo:'/auth', pathMatch:'full'},
   { path: 'auth',component:LoginComponent },
-  { path: 'playlists', component:PlaylistsComponent }
+  { path: 'playlists', component:MainComponent }
 ];
 
 @NgModule({

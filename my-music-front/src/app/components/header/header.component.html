@@ -1,0 +1,17 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex-cont">
+            <button mat-button (click)="onClick()"  class="user p-2 d-flex align-items-center">
+                <img src="../../../assets/user.png" alt="user" class="user-image mr-1 p-2">
+                <span>Email</span> 
+                <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+            </button>
+            <div *ngIf="clicked">
+                <button class="overlay-logout" (click)="logout()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Log Out</span> 
+                </button>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
