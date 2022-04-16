@@ -6,20 +6,34 @@ mat-toolbar{
     background-color: black;
 }
 
+.title{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+h1{
+    font-size: 2em;
+    font-weight: 500;
+}
+
 mat-toolbar-row{
-    justify-content: flex-end !important;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    justify-items: center;
+    
 }
 
 .flex-cont{
-    width:15%;
+    width:100%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    padding-right: 2em;
-    padding-top: .2em;
 }
 
-
 button{
+    display: flex;
+    justify-content: center;
     border: 0;
     border-radius: 10%;
     outline: none;
@@ -33,18 +47,22 @@ button:hover{
 .user{
     font-size: 1em;
     color: aliceblue;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .user-image{
     border-radius: 50%;
-    width: 3.5em;
-    height: 3.5em;
+    width: 3em;
+    height: 3em;
 }
 
 .user-image-icon{
     height: 1em;
     font-size: 1.5em;
+}
+
+.logout{
+    margin-bottom: -6vh;
 }
 
 .overlay-logout{
@@ -57,6 +75,7 @@ button:hover{
     color: aliceblue;
     background-color: black;
     gap: .5em;
+    outline: 1px solid black;
 }
 
 
