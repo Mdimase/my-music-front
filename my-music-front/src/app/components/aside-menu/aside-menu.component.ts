@@ -2,6 +2,7 @@ import { Component, ViewChild} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { delay } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-aside-menu',
@@ -10,9 +11,13 @@ import { delay } from 'rxjs/operators';
 })
 export class AsideMenuComponent{
 
+  email!:string;
+
   @ViewChild(MatSidenav) sidenav!:MatSidenav
 
-  constructor(private observer:BreakpointObserver) { }
+  constructor(private observer:BreakpointObserver,private authService:AuthenticationService){
+    this.authService.getEmail$().subscribe((email:string)=>this.email=email);
+  }
 
   ngAfterViewInit(){
     this.observer.observe(['(max-width: 800px)']).subscribe((res)=>{

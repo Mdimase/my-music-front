@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 /**
  * El servicio de autenticación es utilizado para iniciar o cerrar sesión.
@@ -19,10 +19,21 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
   private readonly TOKEN = 'apiKey';
 
+  private email$ = new BehaviorSubject<string>('');
+
   constructor(private http: HttpClient){}
 
   get token(){
     return localStorage.getItem(this.TOKEN);
+  }
+
+   /*devuelve el email como un observable singleton*/ 
+   getEmail$():Observable<string>{
+    return this.email$.asObservable().pipe(shareReplay());
+  }
+
+  setEmail$(email:string):void{
+    this.email$.next(email);
   }
   
   // si el login es exitoso almaceno el token en el local storage

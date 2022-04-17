@@ -9,10 +9,14 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class HeaderComponent{
 
+  email!:string;
+
   clicked:boolean=false;
 
   constructor(private authenticationService:AuthenticationService,
-    private router:Router) { }
+    private router:Router){
+      this.authenticationService.getEmail$().subscribe((email:string) => this.email=email);
+     }
 
   // switch flag
   onClick(){

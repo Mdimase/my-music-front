@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Observable, shareReplay } from 'rxjs';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { AuthenticationService } from '../../services/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   error:string='';  //mensaje de error ante un mal login
+
   loginForm!: FormGroup;  
   constructor(private formBuilder: FormBuilder, 
     private route: ActivatedRoute,
@@ -48,7 +51,8 @@ export class LoginComponent implements OnInit {
     const password:string = this.loginForm.get('password')?.value;
     this.authenticationService.login(email,password)
       .subscribe({
-        next:(data) => {  //body del response
+        next:(data) => {  // login exitoso
+          this.authenticationService.setEmail$(email);
           this.router.navigate(['music']);  //lleva al usuario a la vista de playlists
         },
         error:(e) => {  // email/password incorrectos
