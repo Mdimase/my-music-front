@@ -19,6 +19,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     PlaylistsComponent,
     FooterComponent,
     HeaderComponent,
-    MainComponent
+    MainComponent,
+    AsideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatIconModule,
     MatMenuModule,
     MatDividerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatButtonModule
   ],
   providers: [AuthenticationService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]

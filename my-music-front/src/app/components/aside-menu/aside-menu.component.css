@@ -1,0 +1,62 @@
+mat-sidenav{
+    margin: 1em;
+    padding: 1em;
+    min-width: 180px;
+    width:15%;
+    border-radius: 12px;
+    background-color: #002b5c;
+    color: antiquewhite;
+    text-align: center;
+}
+
+mat-sidenav-container{
+    height: 90vh;
+}
+
+/*separacion entre el icono y la palabra*/
+mat-icon{
+    margin-right: .5em;
+}
+
+/*boton de navegacion*/
+.menu-button{
+    padding: .5em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+/*img avatar*/
+.avatar {
+    margin-top: 1em;
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+}
+
+/*email logged*/
+.email {
+    margin-top: .7em;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+/*para emails largos que se baje overflow al proximo renglon*/
+.overflow-visible{
+    white-space: nowrap;
+    overflow: hidden;
+    white-space: initial;
+}
+
+/*linea horizontal divisora*/
+mat-divider {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.responsive-menu{
+    float: right;
+}
+ 
