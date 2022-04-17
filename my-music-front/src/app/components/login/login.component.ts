@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(email,password)
       .subscribe({
         next:(data) => {  //body del response
-          this.router.navigate(['playlists']);  //lleva al usuario a la vista de playlists
+          this.router.navigate(['music']);  //lleva al usuario a la vista de playlists
         },
         error:(e) => {  // email/password incorrectos
           this.error = 'email/password incorrectos';

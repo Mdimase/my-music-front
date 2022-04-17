@@ -12,7 +12,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
-import { MainComponent } from './components/main/main.component';
 // imports de angular material
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -21,6 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +29,8 @@ import { AsideMenuComponent } from './components/aside-menu/aside-menu.component
     PlaylistsComponent,
     FooterComponent,
     HeaderComponent,
-    MainComponent,
-    AsideMenuComponent
+    AsideMenuComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,

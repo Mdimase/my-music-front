@@ -10,6 +10,7 @@ mat-toolbar{
 .title{
     display: flex;
     align-items: center;
+    padding-left: 10em;
     height: 100%;
 }
 
