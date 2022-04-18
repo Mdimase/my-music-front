@@ -20,7 +20,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
+import { PlaylistsGalleryComponent } from './components/playlists-gallery/playlists-gallery.component';
+import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     FooterComponent,
     HeaderComponent,
     AsideMenuComponent,
-    GalleryComponent,
+    PlaylistsGalleryComponent,
+    SongsGalleryComponent,
   ],
   imports: [
     BrowserModule,

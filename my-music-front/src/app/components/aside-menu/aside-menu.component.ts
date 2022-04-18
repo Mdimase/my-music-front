@@ -11,12 +11,12 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class AsideMenuComponent{
 
-  email!:string;
+  email!:string|null;
 
   @ViewChild(MatSidenav) sidenav!:MatSidenav
 
   constructor(private observer:BreakpointObserver,private authService:AuthenticationService){
-    this.authService.getEmail$().subscribe((email:string)=>this.email=email);
+    this.email = this.authService.getEmail();
   }
 
   ngAfterViewInit(){

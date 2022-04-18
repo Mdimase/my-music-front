@@ -19,21 +19,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthenticationService {
   private readonly TOKEN = 'apiKey';
 
-  private email$ = new BehaviorSubject<string>('');
-
   constructor(private http: HttpClient){}
 
   get token(){
     return localStorage.getItem(this.TOKEN);
   }
 
-   /*devuelve el email como un observable singleton*/ 
-   getEmail$():Observable<string>{
-    return this.email$.asObservable().pipe(shareReplay());
-  }
-
-  setEmail$(email:string):void{
-    this.email$.next(email);
+  getEmail(){
+    return localStorage.getItem('email');
   }
   
   // si el login es exitoso almaceno el token en el local storage
@@ -44,6 +37,7 @@ export class AuthenticationService {
         const token = res.headers.get("Authorization");
         if(token){
           localStorage.setItem(this.TOKEN,token);
+          localStorage.setItem('email',email);
         }
         return res;
       }));
@@ -52,5 +46,6 @@ export class AuthenticationService {
   //remove user form local storage
   logout() {
     localStorage.removeItem(this.TOKEN);
+    localStorage.removeItem('email');
   }
 }

@@ -52,8 +52,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(email,password)
       .subscribe({
         next:(data) => {  // login exitoso
-          this.authenticationService.setEmail$(email);
-          this.router.navigate(['music']);  //lleva al usuario a la vista de playlists
+          this.router.navigate(['music/playlists']);  //lleva al usuario a la vista de playlists
         },
         error:(e) => {  // email/password incorrectos
           this.error = 'email/password incorrectos';
