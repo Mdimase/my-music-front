@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { ActivatedRoute,Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
+import { ResponsiveService } from 'src/app/services/responsive.service';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +12,17 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class HeaderComponent{
 
+  @Input() responsive:boolean=false;
   email!:string|null;
-
   clicked:boolean=false;
 
   constructor(private authenticationService:AuthenticationService,
-    private router:Router){
+              private responsiveService:ResponsiveService,
+              private observer:BreakpointObserver,
+              private router:Router,
+              private route:ActivatedRoute){
       this.email = this.authenticationService.getEmail();
-    }
+  }
 
   // switch flag
   onClick(){

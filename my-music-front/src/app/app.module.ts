@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
 import { PlaylistsGalleryComponent } from './components/playlists-gallery/playlists-gallery.component';
 import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.component';
+import { ResponsiveService } from './services/responsive.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.
     MatSidenavModule,
     MatButtonModule
   ],
-  providers: [AuthenticationService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
+  providers: [AuthenticationService,ResponsiveService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

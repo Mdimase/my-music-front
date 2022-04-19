@@ -1,8 +1,10 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, ElementRef, ViewChild} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout'
-import { delay } from 'rxjs/operators';
+import { delay, shareReplay } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { ResponsiveService } from 'src/app/services/responsive.service';
 
 @Component({
   selector: 'app-aside-menu',
@@ -13,22 +15,10 @@ export class AsideMenuComponent{
 
   email!:string|null;
 
-  @ViewChild(MatSidenav) sidenav!:MatSidenav
-
-  constructor(private observer:BreakpointObserver,private authService:AuthenticationService){
+  constructor(private authService:AuthenticationService,
+              private responsiveService:ResponsiveService,
+              private observer:BreakpointObserver){
     this.email = this.authService.getEmail();
-  }
-
-  ngAfterViewInit(){
-    this.observer.observe(['(max-width: 800px)']).subscribe((res)=>{
-      if(res.matches){ //pantalla pc
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      }else{  //pantalla cel
-        this.sidenav.mode = 'side';
-        this.sidenav.open();
-      }
-    })
   }
 
 }

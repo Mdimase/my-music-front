@@ -1,13 +1,4 @@
-<mat-sidenav-container>
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()" class="responsive-menu">
-        <mat-icon *ngIf="!sidenav.opened">
-            menu
-        </mat-icon>
-        <mat-icon *ngIf="sidenav.opened">
-            close
-        </mat-icon>
-    </button>
-    <mat-sidenav #sidenav="matSidenav">
+
         <img src="../../../assets/user-music.webp" class="avatar mat-elevation-z8" />
         <h4 class="email overflow-visible">{{email}}</h4>
 
@@ -25,10 +16,3 @@
             <mat-icon>info</mat-icon>
             <span>About</span>
         </button>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content mat-elevation-z8">
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
