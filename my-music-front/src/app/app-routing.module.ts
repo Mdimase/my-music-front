@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PlaylistsGalleryComponent } from './components/playlists-gallery/playlists-gallery.component';
 import { PlaylistsComponent } from './components/playlists/playlists.component';
 import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.component';
+import { PermissionsGuard } from './guards/permissions.guard';
 
 //modulo de navegacion. reglas de navegacion
 // determina que componente atiende/responde a una determinada ruta
@@ -11,8 +12,7 @@ import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.
 const routes: Routes = [
   { path:'', redirectTo:'/auth', pathMatch:'full'},
   { path: 'auth',component:LoginComponent },
-  { path: 'music', redirectTo:'music/playlists', pathMatch:'full' },
-  { path: 'music', component:PlaylistsComponent, 
+  { path: 'music', component:PlaylistsComponent, canActivate:[PermissionsGuard],
       children:[
         {path:'playlists', component:PlaylistsGalleryComponent},
         {path:'songs', component:SongsGalleryComponent}
