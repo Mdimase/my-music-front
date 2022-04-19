@@ -25,6 +25,7 @@ import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.
 import { SignupComponent } from './components/signup/signup.component';
 //import de mdboostrap
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ResponsiveService } from './services/responsive.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatSidenavModule,
     MatButtonModule
   ],
-  providers: [AuthenticationService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
+  providers: [AuthenticationService,ResponsiveService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

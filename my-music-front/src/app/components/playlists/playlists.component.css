@@ -1,0 +1,57 @@
+/*menu sidebar*/
+mat-sidenav{
+    width: 15%;
+    min-width: 190px;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 12px;
+    background-color: #002b5c;
+    color: antiquewhite;
+    text-align: center;
+}
+
+mat-sidenav-container{
+    height: 90%;
+}
+
+/*area de contenido principal*/
+.content {
+    height: 75vh;
+    border-radius: 10px;
+    margin: 1em;
+    margin-left: 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* barra header*/
+.header{
+    display: flex;
+    width: 83vw;
+    padding: 1em;
+    margin-left: .9vw;
+}
+
+mat-toolbar{
+    border-radius: 12px;
+    height: 10%;
+    position:sticky;
+    top: 0;
+    background-color: black;
+}
+
+/*boton menu responsive*/
+.responsive-menu{
+    background-color: black;
+    color: white;
+    height: 8.8vh;
+    margin-left: 32%;
+    width: 10%;
+    border-radius: 10px 0 0 10px;
+}
+
+.toolbar-responsive{
+    border-radius: 0 10px 10px 0;
+}
