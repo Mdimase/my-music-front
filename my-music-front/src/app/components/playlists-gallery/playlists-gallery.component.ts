@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Playlist } from 'src/app/models/playlist.model';
+import { PlaylistsService } from 'src/app/services/playlists.service';
 
 @Component({
   selector: 'app-playlists-gallery',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistsGalleryComponent implements OnInit {
 
-  constructor() { }
+  playlists!:Playlist[];
+
+  constructor(private playlistService:PlaylistsService){}
 
   ngOnInit(): void {
+    this.playlistService.getPlaylists().subscribe((res:Playlist[])=>{
+      this.playlists = res;
+    })
   }
 
 }

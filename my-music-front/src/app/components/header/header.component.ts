@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
-import { ResponsiveService } from 'src/app/services/responsive.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
@@ -17,7 +16,6 @@ export class HeaderComponent{
   clicked:boolean=false;
 
   constructor(private authenticationService:AuthenticationService,
-              private responsiveService:ResponsiveService,
               private observer:BreakpointObserver,
               private router:Router,
               private route:ActivatedRoute){

@@ -11,15 +11,11 @@ export class PlaylistsService {
 
   constructor(private http: HttpClient){ }
 
+  // todas las playlists del usuario logueado
   getPlaylists() : Observable<Playlist[]> {
-    let auth:any = localStorage.getItem('apiKey');  //token JWT
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': auth
-      })};
-      return this.http.get<Playlist[]>(environment.API_URL + '/playlists',httpOptions);
-      
+    return this.http.get<Playlist[]>(environment.API_URL + '/playlists'); 
   }
+
+  
 
 }
