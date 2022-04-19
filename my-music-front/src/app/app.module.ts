@@ -22,6 +22,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
 import { PlaylistsGalleryComponent } from './components/playlists-gallery/playlists-gallery.component';
 import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.component';
+import { SignupComponent } from './components/signup/signup.component';
+//import de mdboostrap
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.
     AsideMenuComponent,
     PlaylistsGalleryComponent,
     SongsGalleryComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    //MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,

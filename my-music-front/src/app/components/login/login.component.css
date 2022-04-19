@@ -1,5 +1,10 @@
-.main{
-    height: 70vh;
-    display: flex;
-    align-items: center;
+.main {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.pull-bottom {
+    display: inline-block;
+    vertical-align: bottom;
+    float: none;
 }

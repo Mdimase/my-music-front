@@ -1,45 +1,75 @@
-<section id="login" class="main">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
-          <div class="card_login">
-            <div class="card">
-              <div class="card-body text-center">
-                <div class="card">
-                  <h2>Login</h2>
-                  <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                      <label for="email" class="form-label">Email</label>
-                      <input type="email" formControlName="email" placeholder="email" class="form-control" [ngClass]="{'is-invalid': isInvalidField('email')}">
-                      <div class="invalid-feedback">
-                        <span *ngIf="loginForm.get('email')?.errors?.['required']">Please enter your email</span>
-                        <span *ngIf="loginForm.get('email')?.errors?.['minlength']">
-                          email must be longer than {{getMin("email")}} characters.
-                        </span>
-                        <span *ngIf="loginForm.get('email')?.errors?.['pattern']">Please enter email valid</span>
-                      </div>
+<!-- https://mdbootstrap.com/docs/angular/getting-started/installation/ MDBoostrap Instalacion -->
+<body class="justify-content-center" style="background-image: url(assets/fondo2.jpg);">
+  <div class="card-body text-center">
+    <img class="images" src="assets/mymusicbanner.png" alt="Welcome to MyMusic App!">
+  </div>
+  <div class="container">
+    <div class="row" align="center">
+      <div class="col-xs-12 col-sm-6 col-md-12 mx-auto">
+        <div class="card_login col-md-6" align="center">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Sign in</strong>
+              </h5>
+              <!-- Default form login -->
+              <form class="text-center border border-light p-5" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+                <!-- Email -->
+                <div class="md-form">
+                  <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" formControlName="email" [ngClass]="{'is-invalid': isInvalidField('email')}">
+                  <div class="alert alert-danger invalid-feedback" role="alert">
+                    <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</div>
+                    <div *ngIf="loginForm.get('email')?.errors?.     ['minlength']">
+                      UserName must be longer than {{getMin("password")}} characters.
                     </div>
-                    <div class="form-group">
-                      <label for="password" class="form-label">password</label>
-                      <input type="password" placeholder="*****" formControlName="password" class="form-control" [ngClass]="{'is-invalid': isInvalidField('password')}">
-                      <div class="invalid-feedback">
-                        <span *ngIf="loginForm.get('password')?.errors?.['required']">Please enter password</span>
-                        <span *ngIf="loginForm.get('password')?.errors?.     ['minlength']">
-                        UserName must be longer than {{getMin("password")}} characters.
-                        </span>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <button [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
-                    </div>
-                  </form>
-                  <div class="alert alert-danger" *ngIf="error">{{error}}</div>
+                  </div>
                 </div>
-              </div>
+                <!-- Password -->
+                <div class="md-form">
+                  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': isInvalidField('password')}">
+                  <div class="alert alert-danger invalid-feedback" role="alert">
+                    <div *ngIf="loginForm.get('password')?.errors?.['required']">Please enter password</div>
+                    <div *ngIf="loginForm.get('password')?.errors?.     ['minlength']">
+                      UserName must be longer than {{getMin("password")}} characters.
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-around">
+                  <div>
+                    <!-- Remember me -->
+                    <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
+                  </div>
+                  <div>
+                    <!-- Forgot password -->
+                    <a href="">Forgot password?</a>
+                  </div>
+                </div>
+                <!-- Sign in button -->
+                <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+                <!-- Register -->
+                <p>Not a member?
+                  <a href="">Register</a>
+                </p>
+                <!-- Social login -->
+                <p>or sign in with:</p>
+                <a type="button" class="light-blue-text mx-2">
+                  <mdb-icon fab icon="facebook"></mdb-icon>
+                </a>
+                <a type="button" class="light-blue-text mx-2">
+                  <mdb-icon fab icon="twitter"></mdb-icon>
+                </a>
+                <a type="button" class="light-blue-text mx-2">
+                  <mdb-icon fab icon="linkedin"></mdb-icon>
+                </a>
+                <a type="button" class="light-blue-text mx-2">
+                  <mdb-icon fab icon="github"></mdb-icon>
+                </a>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <app-footer></app-footer>
+  </div>
+</body>
+<app-footer></app-footer>
