@@ -16,21 +16,22 @@
               <form class="text-center border border-light p-5" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
                 <!-- Email -->
                 <div class="md-form">
-                  <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" formControlName="email" [ngClass]="{'is-invalid': isInvalidField('email')}">
+                  <input type="text" id="defaultLoginFormEmail" class="form-control mb-4 p-2" placeholder="E-mail" formControlName="email" [ngClass]="{'is-invalid': isInvalidField('email')}">
                   <div class="alert alert-danger invalid-feedback" role="alert">
                     <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</div>
-                    <div *ngIf="loginForm.get('email')?.errors?.     ['minlength']">
-                      UserName must be longer than {{getMin("password")}} characters.
+                    <div *ngIf="loginForm.get('email')?.errors?.['minlength']">
+                      Email must be longer than {{getMin("email")}} characters.
                     </div>
+                    <div *ngIf="loginForm.get('email')?.errors?.['pattern']">Please enter valid email</div>
                   </div>
                 </div>
                 <!-- Password -->
                 <div class="md-form">
-                  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': isInvalidField('password')}">
+                  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4 p-2" placeholder="*****" formControlName="password" [ngClass]="{'is-invalid': isInvalidField('password')}">
                   <div class="alert alert-danger invalid-feedback" role="alert">
                     <div *ngIf="loginForm.get('password')?.errors?.['required']">Please enter password</div>
-                    <div *ngIf="loginForm.get('password')?.errors?.     ['minlength']">
-                      UserName must be longer than {{getMin("password")}} characters.
+                    <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                      Password must be longer than {{getMin("password")}} characters.
                     </div>
                   </div>
                 </div>

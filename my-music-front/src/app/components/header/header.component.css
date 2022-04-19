@@ -14,7 +14,7 @@ h1{
 mat-toolbar-row{
     height: 100%;
     display: grid;
-    grid-template-columns: 8fr 2fr;
+    grid-template-columns: 9fr 1fr;
     justify-items: center; 
 }
 
