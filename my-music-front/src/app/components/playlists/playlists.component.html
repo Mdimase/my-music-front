@@ -1,9 +1,12 @@
 <mat-sidenav-container>
-    <mat-sidenav id='sidenav' #sidenav mode="side" opened>
+    <mat-sidenav id='sidenav' #sidenav mode="side" opened class="elevation">
         <app-aside-menu></app-aside-menu>
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="header">
+            <mat-toolbar [ngClass]="{'toolbar-responsive':sidenav.mode === 'over'}">
+                <app-header [responsive] = "sidenav.mode === 'over'"></app-header>
+            </mat-toolbar>
             <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()" class="responsive-menu">
                 <mat-icon *ngIf="!sidenav.opened">
                     menu
@@ -12,11 +15,8 @@
                     close
                 </mat-icon>
             </button>
-            <mat-toolbar [ngClass]="{'toolbar-responsive':sidenav.mode === 'over'}">
-                <app-header [responsive] = "sidenav.mode === 'over'"></app-header>
-            </mat-toolbar>
         </div>
-        <div class="content mat-elevation-z8">
+        <div class="content elevation">
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>

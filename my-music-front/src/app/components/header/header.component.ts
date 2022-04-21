@@ -12,29 +12,11 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 export class HeaderComponent{
 
   @Input() responsive:boolean=false;
-  email!:string|null;
-  clicked:boolean=false;
 
   constructor(private authenticationService:AuthenticationService,
               private observer:BreakpointObserver,
               private router:Router,
               private route:ActivatedRoute){
-      this.email = this.authenticationService.getEmail();
-  }
-
-  // switch flag
-  onClick(){
-    if(!this.clicked){
-      this.clicked=true;
-    }
-    else{
-      this.clicked=false;
-    }
-  }
-
-  logout(){
-    this.authenticationService.logout();
-    this.router.navigate(['auth']);
   }
 
 }

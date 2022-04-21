@@ -1,19 +1,5 @@
-
 <mat-toolbar-row>
-    <div class="title" [ngClass]="{'title-responsive':responsive}">
+    <div class="title">
         <h1 [ngClass]="{'h1-responsive':responsive}">My Music App</h1>
-    </div>
-    <div class="flex-cont">
-        <button mat-button (click)="onClick()" class="user p-2 d-flex align-items-center">
-            <img src="../../../assets/user.png" alt="user" class="user-image mr-3 p-2" [ngClass]="{'user-image-responsive':responsive}">
-            <span [ngClass]="{'email-responsive':responsive}">{{email}}</span>
-            <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
-        </button>
-        <div *ngIf="clicked" class="logout">
-            <button class="overlay-logout" (click)="logout()">
-                <mat-icon>exit_to_app</mat-icon>
-                <span>Log Out</span>
-            </button>
-        </div>
     </div>
 </mat-toolbar-row>

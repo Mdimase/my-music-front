@@ -1,7 +1,7 @@
 /*menu sidebar*/
 mat-sidenav{
     width: 15%;
-    min-width: 190px;
+    min-width: 200px;
     margin: 1em;
     padding: 1em;
     border-radius: 12px;
@@ -10,48 +10,60 @@ mat-sidenav{
     text-align: center;
 }
 
+/*contenedor principal menu + header + gallery*/
 mat-sidenav-container{
     height: 90%;
 }
 
 /*area de contenido principal*/
 .content {
-    height: 75vh;
+    height: 83.8%;
+    width: 92%;
     border-radius: 10px;
     margin: 1em;
-    margin-left: 2em;
+    margin-left: 4%;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.elevation{
+    box-shadow: 0px 5px 5px  5px rgb(0 0 0 / 25%),
+                0px 8px 10px 1px rgb(0 0 0 / 15%), 
+                0px 3px 14px 2px rgb(0 0 0 / 15%);
+}
+
 /* barra header*/
 .header{
     display: flex;
-    width: 83vw;
     padding: 1em;
-    margin-left: .9vw;
+    margin-left: 3%;
+    margin-right: 3%;
+    height: 12%;
+    min-width: 300px;
 }
 
 mat-toolbar{
+    background: url('../../../assets/music-header.jpg');
+    background-size:auto;
     border-radius: 12px;
-    height: 10%;
     position:sticky;
     top: 0;
     background-color: black;
+    justify-content: center;
+    height: 100%;
 }
 
 /*boton menu responsive*/
 .responsive-menu{
     background-color: black;
     color: white;
-    height: 6.8vh;
-    margin-left: 32%;
-    width: 10%;
-    border-radius: 10px 0 0 10px;
+    padding-right: 1em;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
 }
 
 .toolbar-responsive{
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px 0 0 10px;
 }
