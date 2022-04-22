@@ -1,0 +1,15 @@
+.icon-container{
+    display: flex;
+    justify-content: center;
+}
+
+.icon-play{
+    border-radius: 50%;
+    width: 30%;
+    position: absolute;
+    margin-top: -3em;
+}
+
+.borde{
+    border: 5px solid black;
+}
