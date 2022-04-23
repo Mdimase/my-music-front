@@ -9,10 +9,11 @@ import { Song } from '../models/song.model';
 })
 export class SongsService {
 
+  genres:string[] = ['ROCK','POP','TECHNO','JAZZ','FLOK','CLASSICAL'];  
+
   constructor(private http:HttpClient){
     
   }
-
 
   // devuelve la ruta hacia la img segun el genero
   getImg(genre:string):string{
@@ -36,5 +37,18 @@ export class SongsService {
   getSongs():Observable<Song[]>{
     return this.http.get<Song[]>(environment.API_URL + '/songs');
   }
+
+  getSongsByAuthor(author:string):Observable<Song[]>{
+    return this.http.get<Song[]>(environment.API_URL + '/songs?author=' + author);
+  }
+
+  getSongsByGenre(genre:string):Observable<Song[]>{
+    return this.http.get<Song[]>(environment.API_URL + '/songs?genre=' + genre);
+  }
+
+  getSongsByAuthorAndGenre(author:string,genre:string):Observable<Song[]>{
+    return this.http.get<Song[]>(environment.API_URL + '/songs?author=' + author + '&&genre=' + genre);
+  }
+
 
 }
