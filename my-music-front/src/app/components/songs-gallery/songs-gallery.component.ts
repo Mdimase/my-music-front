@@ -25,6 +25,7 @@ export class SongsGalleryComponent implements OnInit {
     this.genres = this.songsService.genres;
   }
 
+  /* por defecto carga todas las canciones */
   ngOnInit(): void {
     this.songsService.getSongs().subscribe((res) =>this.songs = res);
   }
@@ -36,28 +37,52 @@ export class SongsGalleryComponent implements OnInit {
     });
   }
 
+  /* cancelar el filtro y volver a renderizar las canciones */
+  onDefault(author:string,genre:string,toDelete:string):void{
+    if((genre != "" && !author)||(author != "" && !genre)){ //deshacer un filtro unico
+      this.songsService.getSongs().subscribe((res) =>this.songs = res);
+      this.filterForm.reset({author:"",genre:""});
+      this.authorInput = "";
+      this.genreInput = "";
+      this.authorTag = false;
+      this.genreTag = false;
+    }
+    else if(toDelete === 'AUTHOR'){  // del filtro doble elimino author -> permanece con filtro por genre
+      this.songsService.getSongsByGenre(genre).subscribe((res)=>this.songs = res);
+      this.filterForm.reset({author:"",genre:genre});
+      this.authorInput = "";
+      this.authorTag = false;
+    }
+    else if(toDelete === 'GENRE'){   // del filtro doble elimino genre -> permanece con filtro por author
+      this.songsService.getSongsByAuthor(author.toLowerCase()).subscribe((res)=> this.songs = res);
+      this.filterForm.reset({author:author,genre:""}); 
+      this.genreInput = "";
+      this.genreTag = false;
+    }
+  }
+
   /* filtrado de canciones */
   onSubmit():void{
     const author:string = this.filterForm.get('author')?.value;
     const genre:string = this.filterForm.get('genre')?.value;
     if(genre != "" && author == ""){ //only genre
-      this.songsService.getSongsByGenre(genre).subscribe((res)=>this.songs = res);  //obtengo las canciones por genre
-      this.genreInput = this.filterForm.get('genre')?.value;  //guardo el input del usuario
-      this.genreTag = true;  // habilito el tag de genre
-      this.authorTag = false;  // deshabilito el tag de author
+      this.songsService.getSongsByGenre(genre).subscribe((res)=>this.songs = res);
+      this.genreInput = genre;
+      this.genreTag = true;  
+      this.authorTag = false;  
     }
     else if(author != "" && genre == ""){ //only author
-      this.songsService.getSongsByAuthor(author.toLowerCase()).subscribe((res)=> this.songs = res);  //obtengo las canciones por author
-      this.authorInput = this.filterForm.get('author')?.value;  // guardo el input del usuario
-      this.authorTag = true;  // habilito el tag de usuario
-      this.genreTag = false;  //deshabilito el tag de genre
+      this.songsService.getSongsByAuthor(author.toLowerCase()).subscribe((res)=> this.songs = res);  
+      this.authorInput = author;
+      this.authorTag = true; 
+      this.genreTag = false; 
     }
     else if(author != "" && genre != ""){ //both
-      this.songsService.getSongsByAuthorAndGenre(author.toLowerCase(),genre).subscribe((res)=> this.songs = res);  //obtengo las canciones por genre y author
-      this.authorInput = this.filterForm.get('author')?.value;  // guardo el input del usuario
-      this.genreInput = this.filterForm.get('genre')?.value;  //guardo el input del usuario
-      this.authorTag = true;  // habilito el tag de usuario
-      this.genreTag = true;  // habilito el tag de genre
+      this.songsService.getSongsByAuthorAndGenre(author.toLowerCase(),genre).subscribe((res)=> this.songs = res);
+      this.authorInput = author;
+      this.genreInput = genre; 
+      this.genreTag = true;
+      this.authorTag = true; 
     }
   }
 
