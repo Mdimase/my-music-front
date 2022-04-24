@@ -1,5 +1,17 @@
 <div class="container-fluid px-5">
     <form [formGroup]="filterForm" novalidate (submit)="onSubmit()" class="row row-cols-lg-auto gx-3 mt-4 justify-content-center align-items-center">
+        <div class="col-auto" *ngIf="authorTag">
+            <div class="chip chip-lg blue-gradient white-text">
+                {{authorInput}}
+                <i class="close fas fa-times"></i>
+            </div>
+        </div>
+        <div class="col-auto" *ngIf="genreTag">
+            <div class="chip chip-lg blue-gradient white-text">
+                {{genreInput}}
+                <i class="close fas fa-times"></i>
+            </div>
+        </div>
         <div class="col-auto">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Author filter" aria-label="Author" formControlName="author" aria-describedby="basic-addon1">

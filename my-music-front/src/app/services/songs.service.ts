@@ -9,7 +9,7 @@ import { Song } from '../models/song.model';
 })
 export class SongsService {
 
-  genres:string[] = ['ROCK','POP','TECHNO','JAZZ','FLOK','CLASSICAL'];  
+  genres:string[] = ['ROCK','POP','TECHNO','JAZZ','FOLK','CLASSICAL'];  
 
   constructor(private http:HttpClient){
     
