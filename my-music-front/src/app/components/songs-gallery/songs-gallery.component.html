@@ -1,20 +1,20 @@
 <div class="container-fluid px-5">
     <form [formGroup]="filterForm" novalidate (submit)="onSubmit()" class="row row-cols-lg-auto mt-4 justify-content-center align-items-center">
         <div class="col-auto" *ngIf="authorTag">
-            <div class="chip chip-lg blue-gradient white-text">
+            <div class="chip blue-gradient">
                 {{authorInput}}
                 <i (click)="onDefault(authorInput,genreInput,'AUTHOR')" class="close fas fa-times"></i>
             </div>
         </div>
         <div class="col-auto" *ngIf="genreTag">
-            <div class="chip chip-lg blue-gradient white-text">
+            <div class="chip blue-gradient">
                 {{genreInput}}
                 <i (click)="onDefault(authorInput,genreInput,'GENRE')" class="close fas fa-times"></i>
             </div>
         </div>
         <div class="col-auto">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Author filter" aria-label="Author" formControlName="author" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Author Search" aria-label="Author" formControlName="author" aria-describedby="basic-addon1">
                 <div id="search" class="input-group-text">
                     <mat-icon>search</mat-icon>
                 </div>
@@ -23,7 +23,7 @@
         <div class="col-auto">
             <div class="input-group">
                 <select class="form-select" formControlName="genre">
-                    <option value="" disabled selected>Genre filter</option>
+                    <option value="" disabled selected>Genre Search</option>
                     <option *ngFor="let g of genres" [ngValue]="g">{{g}}</option>
                 </select>
                 <div id="search" class="input-group-text">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-auto">
-            <button mdbBtn class="btn-filter" block="true" type="submit">Filter</button>
+            <button mdbBtn class="btn-filter" block="true" type="submit">search</button>
         </div>
     </form>
     <div class="row g-5 mt-4 mb-5">
