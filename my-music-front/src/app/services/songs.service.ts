@@ -9,6 +9,8 @@ import { Song } from '../models/song.model';
 })
 export class SongsService {
 
+  static SONGS_PATH = environment.API_URL + '/songs';
+
   genres:string[] = ['ROCK','POP','TECHNO','JAZZ','FOLK','CLASSICAL'];  
 
   constructor(private http:HttpClient){
@@ -35,19 +37,19 @@ export class SongsService {
   }
 
   getSongs():Observable<Song[]>{
-    return this.http.get<Song[]>(environment.API_URL + '/songs');
+    return this.http.get<Song[]>(SongsService.SONGS_PATH);
   }
 
   getSongsByAuthor(author:string):Observable<Song[]>{
-    return this.http.get<Song[]>(environment.API_URL + '/songs?author=' + author);
+    return this.http.get<Song[]>(SongsService.SONGS_PATH + '?author=' + author);
   }
 
   getSongsByGenre(genre:string):Observable<Song[]>{
-    return this.http.get<Song[]>(environment.API_URL + '/songs?genre=' + genre);
+    return this.http.get<Song[]>(SongsService.SONGS_PATH + '?genre=' + genre);
   }
 
   getSongsByAuthorAndGenre(author:string,genre:string):Observable<Song[]>{
-    return this.http.get<Song[]>(environment.API_URL + '/songs?author=' + author + '&&genre=' + genre);
+    return this.http.get<Song[]>(SongsService.SONGS_PATH + '?author=' + author + '&&genre=' + genre);
   }
 
 
