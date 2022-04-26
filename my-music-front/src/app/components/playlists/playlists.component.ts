@@ -14,16 +14,11 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 export class PlaylistsComponent implements OnInit {
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
-  playlists!: Playlist[];
 
   constructor(private route:ActivatedRoute, 
-              private playlistsService:PlaylistsService,
               private observer:BreakpointObserver){}
 
   ngOnInit(): void {
-    this.playlistsService.getPlaylists().subscribe((res: any) =>{
-      this.playlists = res;
-    });
   }
 
   /* habilitida/deshablita el menu responsive*/

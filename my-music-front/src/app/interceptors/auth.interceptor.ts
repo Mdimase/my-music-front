@@ -13,7 +13,8 @@ export class AuthInterceptor implements HttpInterceptor {
   /*metodo intercept para agregar JWT token en el headers de las request*/
    // se crea una nueva request a partir de la anterior
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>{
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
+    console.log(request);
     if(this.authService.token != null){
       request = request.clone({
         headers: request.headers.set('Authorization',this.authService.token),

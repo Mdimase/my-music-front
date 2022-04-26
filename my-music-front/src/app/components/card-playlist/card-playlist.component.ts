@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Playlist } from 'src/app/models/playlist.model';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import Swal from 'sweetalert2';
 
@@ -11,6 +12,7 @@ export class CardPlaylistComponent implements OnInit {
 
   @Input() name!:string;
   @Input() id!:string;
+  @Output() newPlaylist = new EventEmitter<Playlist>();
 
   constructor(private playlistService:PlaylistsService) { }
 
@@ -43,7 +45,8 @@ export class CardPlaylistComponent implements OnInit {
     })
     /*accion cuando se clickea el boton update*/
     if(name){
-      Swal.fire(`New Name: ${name}`)
+      this.playlistService.updateName(name,this.id).subscribe();
+      this.newPlaylist.emit(new Playlist(this.id,name));
     } 
   }
 

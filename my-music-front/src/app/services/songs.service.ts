@@ -9,7 +9,7 @@ import { Song } from '../models/song.model';
 })
 export class SongsService {
 
-  static SONGS_PATH = environment.API_URL + '/songs';
+  static readonly SONGS_PATH = environment.API_URL + '/songs';
 
   genres:string[] = ['ROCK','POP','TECHNO','JAZZ','FOLK','CLASSICAL'];  
 

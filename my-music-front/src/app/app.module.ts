@@ -27,6 +27,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardComponent } from './components/card/card.component';
 import { CardPlaylistComponent } from './components/card-playlist/card-playlist.component';
+import { PlaylistsService } from './services/playlists.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { CardPlaylistComponent } from './components/card-playlist/card-playlist.
     MatSidenavModule,
     MatButtonModule
   ],
-  providers: [AuthenticationService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
+  providers: [AuthenticationService,PlaylistsService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

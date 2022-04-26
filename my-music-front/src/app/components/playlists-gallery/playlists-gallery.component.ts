@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Playlist } from 'src/app/models/playlist.model';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 
@@ -17,6 +17,18 @@ export class PlaylistsGalleryComponent implements OnInit {
     this.playlistService.getPlaylists().subscribe((res:Playlist[])=>{
       this.playlists = res;
     })
+  }
+
+  addPlaylist(p:Playlist):void{
+    this.playlists.push(p);
+  }
+
+  updatePlaylist(playlist:Playlist):void{
+    this.playlists.map(p => {
+      if(p.id === playlist.id){
+        p.name = playlist.name;
+      }
+    });
   }
 
 }

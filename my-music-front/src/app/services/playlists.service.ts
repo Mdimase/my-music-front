@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Playlist } from '../models/playlist.model';
 import { environment } from 'src/environments/environment';
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PlaylistsService {
 
-  static PLAYLIST_PATH = environment.API_URL + '/playlists';
+  static readonly PLAYLIST_PATH = environment.API_URL + '/playlists';
 
   constructor(private http: HttpClient){ }
 
@@ -19,9 +19,7 @@ export class PlaylistsService {
   }
 
   updateName(name:string,id:string):Observable<void>{
-    const body = {name:name}
-    return this.http.put<void>(PlaylistsService.PLAYLIST_PATH + '/playlists/id',body);
+    return this.http.put<void>(PlaylistsService.PLAYLIST_PATH + '/' + id,{name});
   }
-  
 
 }
