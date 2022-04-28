@@ -28,6 +28,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardComponent } from './components/card/card.component';
 import { CardPlaylistComponent } from './components/card-playlist/card-playlist.component';
 import { PlaylistsService } from './services/playlists.service';
+import { CardAddComponent } from './components/card-add/card-add.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PlaylistsService } from './services/playlists.service';
     SignupComponent,
     CardComponent,
     CardPlaylistComponent,
+    CardAddComponent,
   ],
   imports: [
     BrowserModule,

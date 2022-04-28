@@ -1,0 +1,13 @@
+@import url("../card/card.component.css");
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-add{
+    cursor: pointer;
+    font-size: 5em;
+    color: rgba(0,116,255,1);
+}
