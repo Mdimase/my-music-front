@@ -23,9 +23,12 @@ import { AsideMenuComponent } from './components/aside-menu/aside-menu.component
 import { PlaylistsGalleryComponent } from './components/playlists-gallery/playlists-gallery.component';
 import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 //import de mdboostrap
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardComponent } from './components/card/card.component';
+import { TermsandconditionsComponent } from './components/termsandconditions/termsandconditions.component';
 import { CardPlaylistComponent } from './components/card-playlist/card-playlist.component';
 import { PlaylistsService } from './services/playlists.service';
 import { CardAddComponent } from './components/card-add/card-add.component';
@@ -42,6 +45,7 @@ import { CardAddComponent } from './components/card-add/card-add.component';
     SongsGalleryComponent,
     SignupComponent,
     CardComponent,
+    TermsandconditionsComponent,
     CardPlaylistComponent,
     CardAddComponent,
   ],
@@ -58,7 +62,9 @@ import { CardAddComponent } from './components/card-add/card-add.component';
     MatMenuModule,
     MatDividerModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MdbModalModule,
   ],
   providers: [AuthenticationService,PlaylistsService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
