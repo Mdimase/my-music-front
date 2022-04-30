@@ -1,8 +1,5 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
-body{
-    height: 100%;
-}
-html, body { height: 100%; }
+html, body { height: 100% !important; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-drawer-container{

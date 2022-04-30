@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Playlist } from 'src/app/models/playlist.model';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import Swal from 'sweetalert2';
 
@@ -8,6 +9,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./card-add.component.css']
 })
 export class CardAddComponent implements OnInit {
+
+  @Output() newPlaylist = new EventEmitter<Playlist[]>();
 
   constructor(private playlistService:PlaylistsService) { }
 
@@ -40,8 +43,11 @@ export class CardAddComponent implements OnInit {
     })
     /*accion cuando se clickea el boton create*/
     if(name){
-      
+      this.playlistService.create(name).subscribe(()=>{
+        this.playlistService.getPlaylists().subscribe((res) => {
+          this.newPlaylist.emit(res);
+        });
+      });
     } 
   }
-
 }

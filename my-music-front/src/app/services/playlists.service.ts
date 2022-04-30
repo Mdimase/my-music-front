@@ -22,4 +22,8 @@ export class PlaylistsService {
     return this.http.put<void>(PlaylistsService.PLAYLIST_PATH + '/' + id,{name});
   }
 
+  create(name:string):Observable<void>{
+    return this.http.post<void>(PlaylistsService.PLAYLIST_PATH,{name});
+  }
+
 }

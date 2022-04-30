@@ -12,7 +12,7 @@ export class CardPlaylistComponent implements OnInit {
 
   @Input() name!:string;
   @Input() id!:string;
-  @Output() newPlaylist = new EventEmitter<Playlist>();
+  @Output() updatePlaylist = new EventEmitter<Playlist>();
 
   constructor(private playlistService:PlaylistsService) { }
 
@@ -46,7 +46,7 @@ export class CardPlaylistComponent implements OnInit {
     /*accion cuando se clickea el boton update*/
     if(name){
       this.playlistService.updateName(name,this.id).subscribe();
-      this.newPlaylist.emit(new Playlist(this.id,name));
+      this.updatePlaylist.emit(new Playlist(this.id,name));
     } 
   }
 
