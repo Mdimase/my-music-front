@@ -1,1 +1,54 @@
-<p>signup works!</p>
+<body class="justify-content-center" style="background-image: url(assets/fondo2.jpg);">
+  <div class="card-body text-center">
+    <img class="images" src="assets/mymusicbanner.png" alt="Welcome to MyMusic App!">
+  </div>
+  <div class="container">
+    <div class="row" align="center">
+      <div class="col-xs-12 col-sm-6 col-md-12 mx-auto">
+        <div class="card_login col-md-6" align="center">
+          <div class="card">
+            <div class="card-body text-center">
+              <!-- Default form register -->
+              <form class="text-center border border-light p-5">
+                <p class="h4 mb-4">Sign up</p>
+                <div class="form-row mb-4">
+                  <!-- E-mail -->
+                  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+                  <!-- Password -->
+                  <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                  <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                    At least 8 characters and 1 digit
+                  </small>
+                  <!-- Sign up button -->
+                  <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>
+                  <!-- Social register -->
+                  <p>or sign up with:</p>
+                  <a type="button" class="light-blue-text mx-2">
+                    <mdb-icon fab icon="facebook"></mdb-icon>
+                  </a>
+                  <a type="button" class="light-blue-text mx-2">
+                    <mdb-icon fab icon="twitter"></mdb-icon>
+                  </a>
+                  <a type="button" class="light-blue-text mx-2">
+                    <mdb-icon fab icon="linkedin"></mdb-icon>
+                  </a>
+                  <a type="button" class="light-blue-text mx-2">
+                    <mdb-icon fab icon="github"></mdb-icon>
+                  </a>
+                  <hr>
+                  <!-- Terms of service -->
+                  <p>By clicking
+                    <em>Sign up</em> you agree to our
+                    <a type="button" class="light-blue-text" (click)="openModal()">terms of service</a>
+                  </p>
+                </div>
+              </form>
+              <!-- Default form register -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<app-footer></app-footer>
