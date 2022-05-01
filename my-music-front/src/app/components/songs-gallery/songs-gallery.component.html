@@ -3,13 +3,13 @@
         <div class="col-auto" *ngIf="authorTag">
             <div class="chip blue-gradient">
                 {{authorInput}}
-                <i (click)="onDefault(authorInput,genreInput,'AUTHOR')" class="close fas fa-times"></i>
+                <i (click)="onDefault(authorInput,genreInput,'AUTHOR')" class="close fas fa-times pointer"></i>
             </div>
         </div>
         <div class="col-auto" *ngIf="genreTag">
             <div class="chip blue-gradient">
                 {{genreInput}}
-                <i (click)="onDefault(authorInput,genreInput,'GENRE')" class="close fas fa-times"></i>
+                <i (click)="onDefault(authorInput,genreInput,'GENRE')" class="close fas fa-times pointer"></i>
             </div>
         </div>
         <div class="col-auto">

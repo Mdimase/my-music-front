@@ -5,5 +5,8 @@
     <img src="../../../assets/fondo-playlist.jpg" alt="playlist logo" class="card-img-top">
     <div class="card-body divisor background-gradient text-white">
         <h4 class="card-title text-center">{{name}}<i class="bi bi-pencil p-3 cursor" (click)="showUpdateModal()"></i></h4>
+        <div class="buttons-container">
+            <i class="bi bi-trash button trash delete" (click)="showDeleteModal()"></i>
+        </div>
     </div>
 </div>

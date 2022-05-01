@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Playlist } from 'src/app/models/playlist.model';
+import { AlertService } from 'src/app/services/alert.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import Swal from 'sweetalert2';
 
@@ -14,7 +15,7 @@ export class CardPlaylistComponent implements OnInit {
   @Input() id!:string;
   @Output() updatePlaylist = new EventEmitter<Playlist>();
 
-  constructor(private playlistService:PlaylistsService) { }
+  constructor(private playlistService:PlaylistsService,private alertService:AlertService) { }
 
   ngOnInit(): void {
   }
@@ -47,7 +48,32 @@ export class CardPlaylistComponent implements OnInit {
     if(name){
       this.playlistService.updateName(name,this.id).subscribe();
       this.updatePlaylist.emit(new Playlist(this.id,name));
+      this.alertService.success('playlist name updated succesfully');
     } 
+  }
+
+  /* modal para confirmar la eliminacion de una playlist */
+  showDeleteModal(){
+    /* modal de confirmacion */
+    Swal.fire({
+      title: 'Are you sure?',
+      text:'delete this playlist with its songs?',
+      icon: 'warning',
+      iconColor:'#d33',
+      showCancelButton: true,
+      allowOutsideClick:false,
+      showCloseButton:true,
+      allowEscapeKey:false,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText:'No'
+    }).then((result) => {  
+      if(result.isConfirmed){// confirmacion realizada, presiono el boton delete
+        // TO DO ELIMINAR PLAYLIST CON SUS CANCIONES
+        this.alertService.success("Playlist deleted succesfully");
+      }
+    })
   }
 
 }

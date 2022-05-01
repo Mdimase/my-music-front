@@ -12,3 +12,7 @@
     border-radius: 25px;
     color: white;             
 }
+
+.pointer{
+    cursor: pointer;
+}

@@ -10,7 +10,7 @@ export class AlertService {
     position: 'top-end',
     icon: 'success',
     showConfirmButton: false,
-    timer: 2000,
+    timer: 1500,
   })
 
   constructor(){}
@@ -20,7 +20,5 @@ export class AlertService {
       title:title
     })
   }
-  
-  
 
 }
