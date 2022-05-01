@@ -4,7 +4,8 @@
             <app-card-add (newPlaylist)="newPlaylist($event)"></app-card-add>
         </div>
         <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let p of playlists">
-            <app-card-playlist [name]="p.name" [id]="p.id" (updatePlaylist)="updatePlaylist($event)"></app-card-playlist>
+            <app-card-playlist [name]="p.name" [id]="p.id" 
+            (updatePlaylist)="updatePlaylist($event)" (deletePlaylist)="deletePlaylist($event)"></app-card-playlist>
         </div>
     </div>
 </div>

@@ -14,6 +14,7 @@ export class CardPlaylistComponent implements OnInit {
   @Input() name!:string;
   @Input() id!:string;
   @Output() updatePlaylist = new EventEmitter<Playlist>();
+  @Output() deletePlaylist = new EventEmitter<Playlist>();
 
   constructor(private playlistService:PlaylistsService,private alertService:AlertService) { }
 
@@ -48,7 +49,6 @@ export class CardPlaylistComponent implements OnInit {
     if(name){
       this.playlistService.updateName(name,this.id).subscribe();
       this.updatePlaylist.emit(new Playlist(this.id,name));
-      this.alertService.success('playlist name updated succesfully');
     } 
   }
 
@@ -70,8 +70,8 @@ export class CardPlaylistComponent implements OnInit {
       cancelButtonText:'No'
     }).then((result) => {  
       if(result.isConfirmed){// confirmacion realizada, presiono el boton delete
-        // TO DO ELIMINAR PLAYLIST CON SUS CANCIONES
-        this.alertService.success("Playlist deleted succesfully");
+        this.playlistService.delete(this.id).subscribe();
+        this.deletePlaylist.emit(new Playlist(this.id,this.name));
       }
     })
   }

@@ -20,21 +20,27 @@ export class PlaylistsGalleryComponent implements OnInit {
     })
   }
 
-  addPlaylist(p:Playlist):void{
-    this.playlists.push(p);
-  }
-
+  /* modificar la playlist de la coleccion en memoria */
   updatePlaylist(playlist:Playlist):void{
     this.playlists.map(p => {
       if(p.id === playlist.id){
         p.name = playlist.name;
       }
     });
+    this.alertService.success('playlist name updated succesfully');
   }
 
+  /* agregar la nueva playlist a la coleccion en memoria */
+  /* reemplaza toda la coleccion por la actualizada */
   newPlaylist(playlists:Playlist[]):void{
     this.playlists = playlists;
     this.alertService.success("Playlist created succesfully");
+  }
+
+  /* eliminar playlist de la coleccion en memoria */
+  deletePlaylist(playlist:Playlist):void{
+    this.playlists = this.playlists.filter((p) => p.id !== playlist.id);
+    this.alertService.success("Playlist deleted succesfully");
   }
 
 }

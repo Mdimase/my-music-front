@@ -26,4 +26,8 @@ export class PlaylistsService {
     return this.http.post<void>(PlaylistsService.PLAYLIST_PATH,{name});
   }
 
+  delete(id:string):Observable<void>{
+    return this.http.delete<void>(PlaylistsService.PLAYLIST_PATH + '/' + id);
+  }
+
 }
