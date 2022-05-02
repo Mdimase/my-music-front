@@ -32,6 +32,7 @@ import { TermsandconditionsComponent } from './components/termsandconditions/ter
 import { CardPlaylistComponent } from './components/card-playlist/card-playlist.component';
 import { PlaylistsService } from './services/playlists.service';
 import { CardAddComponent } from './components/card-add/card-add.component';
+import { InfoPlaylistComponent } from './components/info-playlist/info-playlist.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { CardAddComponent } from './components/card-add/card-add.component';
     TermsandconditionsComponent,
     CardPlaylistComponent,
     CardAddComponent,
+    InfoPlaylistComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 
 /*separacion entre el icono y la palabra*/
-mat-icon{
+.space{
     margin-right: .5em;
 }
 

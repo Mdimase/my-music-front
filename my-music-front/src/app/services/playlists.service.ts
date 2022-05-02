@@ -3,6 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Playlist } from '../models/playlist.model';
 import { environment } from 'src/environments/environment';
+import { Song } from '../models/song.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +19,24 @@ export class PlaylistsService {
     return this.http.get<Playlist[]>(PlaylistsService.PLAYLIST_PATH); 
   }
 
+  // modificar el nombre a una playlist
   updateName(name:string,id:string):Observable<void>{
     return this.http.put<void>(PlaylistsService.PLAYLIST_PATH + '/' + id,{name});
   }
 
+  // crear una nueva playlist sin canciones
   create(name:string):Observable<void>{
     return this.http.post<void>(PlaylistsService.PLAYLIST_PATH,{name});
   }
 
+  // eliminar una playlist y sus canciones
   delete(id:string):Observable<void>{
     return this.http.delete<void>(PlaylistsService.PLAYLIST_PATH + '/' + id);
+  }
+
+  // canciones de una playlist
+  getSongs(id:string):Observable<any>{
+    return this.http.get<any>(PlaylistsService.PLAYLIST_PATH + '/' + id);
   }
 
 }

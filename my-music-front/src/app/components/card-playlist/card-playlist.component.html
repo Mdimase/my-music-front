@@ -6,7 +6,8 @@
     <div class="card-body divisor background-gradient text-white">
         <h4 class="card-title text-center">{{name}}<i class="bi bi-pencil p-3 cursor" (click)="showUpdateModal()"></i></h4>
         <div class="buttons-container">
-            <i class="bi bi-trash button trash delete" (click)="showDeleteModal()"></i>
+            <a [routerLink]="['/music/playlists',id]" [queryParams]="{playlistName:name}" class="button btn-info size"><i class="bi bi-music-note-list"></i></a>
+            <i class="bi bi-trash button btn-danger size" (click)="showDeleteModal()"></i>
         </div>
     </div>
 </div>

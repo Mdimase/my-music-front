@@ -14,7 +14,6 @@ export class AuthInterceptor implements HttpInterceptor {
    // se crea una nueva request a partir de la anterior
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
-    console.log(request);
     if(this.authService.token != null){
       request = request.clone({
         headers: request.headers.set('Authorization',this.authService.token),

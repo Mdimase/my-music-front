@@ -5,14 +5,14 @@
         <mat-divider></mat-divider>
 
         <button mat-button class="menu-button" [routerLink]="['/music/playlists']">
-            <mat-icon>library_music</mat-icon>
+            <mat-icon class="space">library_music</mat-icon>
             <span>Playlists</span>
         </button>
         <button mat-button class="menu-button" [routerLink]="['/music/songs']">
-            <mat-icon>headset</mat-icon>
+            <i class="bi bi-disc space"></i>
             <span>Songs</span>
         </button>
         <button mat-button class="menu-button" (click)="logout()">
-            <mat-icon>exit_to_app</mat-icon>
+            <mat-icon class="space">exit_to_app</mat-icon>
             <span>Log Out</span>
         </button>

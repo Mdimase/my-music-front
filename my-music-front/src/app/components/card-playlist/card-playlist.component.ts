@@ -1,8 +1,11 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { Playlist } from 'src/app/models/playlist.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import Swal from 'sweetalert2';
+import { TermsandconditionsComponent } from '../termsandconditions/termsandconditions.component';
 
 @Component({
   selector: 'app-card-playlist',
@@ -16,7 +19,7 @@ export class CardPlaylistComponent implements OnInit {
   @Output() updatePlaylist = new EventEmitter<Playlist>();
   @Output() deletePlaylist = new EventEmitter<Playlist>();
 
-  constructor(private playlistService:PlaylistsService,private alertService:AlertService) { }
+  constructor(private playlistService:PlaylistsService,private alertService:AlertService,private router:Router) { }
 
   ngOnInit(): void {
   }

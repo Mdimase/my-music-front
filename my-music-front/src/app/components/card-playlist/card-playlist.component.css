@@ -8,6 +8,7 @@
     padding-top: 1em;
     display: flex;
     justify-content: center;
+    gap: 2em;
 }
 
 .button{
@@ -20,18 +21,12 @@
     border-radius: 0.25rem;
 }
 
-.button:hover{
+.button:hover,.cursor:hover{
     opacity: .8;
 }
 
-.trash{
-    color: #fff;
-    background-color: #d33;
-    border-color: #d33;
-}
-
-.delete{
-    width: 30%;
+.size{
+    width: 35%;
     font-size: 1.3em;
 }
 

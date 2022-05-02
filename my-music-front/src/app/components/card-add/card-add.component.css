@@ -11,3 +11,7 @@
     font-size: 5em;
     color: rgba(0,116,255,1);
 }
+
+.button-add:hover{
+    opacity: .8;
+}
