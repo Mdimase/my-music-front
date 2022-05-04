@@ -22,6 +22,11 @@ export class InfoPlaylistComponent implements OnInit {
     this.playlistService.getSongs(this.id).subscribe((res)=> this.songs = res.songs);
   }
 
+  // agregar una cancion a una playlist
+  addSong(song:Song):void{
+    // TO DO
+    console.log("agregado");
+  }
 
 
 }
