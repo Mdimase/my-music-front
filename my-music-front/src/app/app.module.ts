@@ -33,6 +33,8 @@ import { CardPlaylistComponent } from './components/card-playlist/card-playlist.
 import { PlaylistsService } from './services/playlists.service';
 import { CardAddComponent } from './components/card-add/card-add.component';
 import { InfoPlaylistComponent } from './components/info-playlist/info-playlist.component';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { InfoPlaylistComponent } from './components/info-playlist/info-playlist.
     CardPlaylistComponent,
     CardAddComponent,
     InfoPlaylistComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,10 @@ import { InfoPlaylistComponent } from './components/info-playlist/info-playlist.
     MatDialogModule,
     MdbModalModule,
   ],
-  providers: [AuthenticationService,PlaylistsService,{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
+  providers: [AuthenticationService,PlaylistsService,
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

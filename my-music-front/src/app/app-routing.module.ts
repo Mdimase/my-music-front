@@ -7,6 +7,7 @@ import { SongsGalleryComponent } from './components/songs-gallery/songs-gallery.
 import { PermissionsGuard } from './guards/permissions.guard';
 import { SignupComponent } from './components/signup/signup.component';
 import { InfoPlaylistComponent } from './components/info-playlist/info-playlist.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 //modulo de navegacion. reglas de navegacion
 // determina que componente atiende/responde a una determinada ruta
@@ -21,7 +22,9 @@ const routes: Routes = [
         {path:'songs', component:SongsGalleryComponent}
       ]
   },
-  { path: 'signup', component: SignupComponent},
+  { path: 'signup', component: SignupComponent },
+  { path: 'error',component: ErrorPageComponent },
+  { path: '**', redirectTo:'/auth',pathMatch:'full'}
 ];
 
 @NgModule({
