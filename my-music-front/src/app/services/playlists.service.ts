@@ -39,4 +39,9 @@ export class PlaylistsService {
     return this.http.get<any>(PlaylistsService.PLAYLIST_PATH + '/' + id);
   }
 
+  addSong(idPlaylist:string,idSong:string):Observable<any>{
+    const url:string = PlaylistsService.PLAYLIST_PATH + '/' + idPlaylist + '/songs';
+    return this.http.post<any>(url,{id:idSong});
+  }
+
 }

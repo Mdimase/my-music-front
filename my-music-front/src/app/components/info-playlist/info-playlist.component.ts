@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Song } from 'src/app/models/song.model';
+import { AlertService } from 'src/app/services/alert.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class InfoPlaylistComponent implements OnInit {
   id!:string;
   playlistName!:string;
 
-  constructor(private playlistService:PlaylistsService,private activatedRoute:ActivatedRoute) { }
+  constructor(private playlistService:PlaylistsService,private activatedRoute:ActivatedRoute, private alertService:AlertService) { }
 
   ngOnInit(): void{
     this.activatedRoute.queryParams.subscribe((pn) => this.playlistName = pn['playlistName']);
@@ -22,11 +23,10 @@ export class InfoPlaylistComponent implements OnInit {
     this.playlistService.getSongs(this.id).subscribe((res)=> this.songs = res.songs);
   }
 
-  // agregar una cancion a una playlist
+  // agregar cancion a la lista en memoria de canciones de esta playlist
   addSong(song:Song):void{
-    // TO DO
-    console.log("agregado");
+    this.songs.push(song);
+    this.alertService.success("Song added succesfully");
   }
-
 
 }

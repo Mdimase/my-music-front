@@ -35,6 +35,7 @@ import { CardAddComponent } from './components/card-add/card-add.component';
 import { InfoPlaylistComponent } from './components/info-playlist/info-playlist.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { CardAddSongComponent } from './components/card-add-song/card-add-song.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     CardAddComponent,
     InfoPlaylistComponent,
     ErrorPageComponent,
+    CardAddSongComponent,
   ],
   imports: [
     BrowserModule,

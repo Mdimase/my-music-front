@@ -20,7 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((e) => {
         if(e.status === 401 || e.status === 403){  //unauthorized
           this.authenticationService.logout();
-          location.reload();
+          //location.reload();
         }
         if(e.status === 404){
           this.router.navigate(['/error']);
