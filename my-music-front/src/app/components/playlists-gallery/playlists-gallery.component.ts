@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Playlist } from 'src/app/models/playlist.model';
 import { AlertService } from 'src/app/services/alert.service';
@@ -10,14 +11,26 @@ import { PlaylistsService } from 'src/app/services/playlists.service';
 })
 export class PlaylistsGalleryComponent implements OnInit {
 
+  xxl:boolean = false;  // xxl breakpoint 1600px
   playlists!:Playlist[];
 
-  constructor(private playlistService:PlaylistsService, private alertService:AlertService){}
+  constructor(private playlistService:PlaylistsService, private alertService:AlertService, private observer:BreakpointObserver){}
 
   ngOnInit(): void {
     this.playlistService.getPlaylists().subscribe((res:Playlist[])=>{
       this.playlists = res;
     })
+  }
+
+  /* habilitida/deshablita el breakpoint xxl del grid gallery*/
+  ngAfterViewInit(){
+    this.observer.observe(['(min-width: 1600px)']).subscribe((res)=>{
+      if(res.matches){ 
+        this.xxl = true;
+      }else{
+        this.xxl = false;
+      }
+    });
   }
 
   /* modificar la playlist de la coleccion en memoria */

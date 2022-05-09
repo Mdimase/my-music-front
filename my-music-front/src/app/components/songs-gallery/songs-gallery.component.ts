@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
 import { flush } from '@angular/core/testing';
@@ -15,12 +16,13 @@ export class SongsGalleryComponent implements OnInit {
   songs!:Song[];
   filterForm!:FormGroup;
   genres!:string[];
+  xxl:boolean = false;  // xxl breakpoint 1600px
   authorTag:boolean = false;  // flag para habilitar el renderizado del tag de author filtrado
   genreTag:boolean = false;  // flag para habilitar el renderizado del tag de genre filtrado
   authorInput!:string;  // author ingresado por usuario para filtrar
   genreInput!:string;   // genre ingresado por usuario para filtrar
 
-  constructor(private songsService:SongsService,private formBuilder: FormBuilder){
+  constructor(private songsService:SongsService,private formBuilder: FormBuilder, private observer:BreakpointObserver){
     this.filterForm = this.initForm();
     this.genres = this.songsService.genres;
   }
@@ -28,6 +30,17 @@ export class SongsGalleryComponent implements OnInit {
   /* por defecto carga todas las canciones */
   ngOnInit(): void {
     this.songsService.getSongs().subscribe((res) =>this.songs = res);
+  }
+
+  /* habilitida/deshablita el breakpoint xxl del grid gallery*/
+  ngAfterViewInit(){
+    this.observer.observe(['(min-width: 1600px)']).subscribe((res)=>{
+      if(res.matches){ 
+        this.xxl = true;
+      }else{
+        this.xxl = false;
+      }
+    });
   }
 
   initForm():FormGroup{

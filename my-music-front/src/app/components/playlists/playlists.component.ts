@@ -1,10 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
-import { PlaylistsService } from '../../services/playlists.service';
-import { Playlist } from '../../models/playlist.model';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
-
 
 @Component({
   selector: 'app-playlists',
@@ -23,7 +20,7 @@ export class PlaylistsComponent implements OnInit {
 
   /* habilitida/deshablita el menu responsive*/
   ngAfterViewInit(){
-    this.observer.observe(['(max-width: 800px)']).subscribe((res)=>{
+    this.observer.observe(['(max-width: 900px)']).subscribe((res)=>{
       if(res.matches){ //pantalla pc
         this.sidenav.mode = 'over';
         this.sidenav.close();

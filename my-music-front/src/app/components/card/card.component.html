@@ -3,10 +3,17 @@
         <img src="../../../assets/icono-play.webp" alt="icono play" class="icon-play">
     </div>
     <img src="" #img
-    alt="{{genre}} music logo" class="card-img-top">
+    alt="{{song.genre}} music logo" class="card-img-top img-size">
     <div class="card-body divisor background-gradient text-white">
-        <h4 class="card-title text-center">{{name}}</h4>
-        <p class="card-text p-1">Author: {{author}}</p>
-        <p class="card-text p-1">Genre: {{genre}}</p>
+        <h4 class="card-title text-center">{{song.name}}</h4>
+        <div class="row">
+            <div class="col-8">
+                <p class="card-text">Author: {{song.author}}</p>
+                <p class="card-text">Genre: {{song.genre}}</p>
+            </div>
+            <div class="col-4 align-self-center" *ngIf="editable">
+                <i class="bi bi-trash button btn-danger size" (click)="showDeleteModal()"></i>
+            </div>
+        </div>
     </div>
 </div>

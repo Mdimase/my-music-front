@@ -44,4 +44,9 @@ export class PlaylistsService {
     return this.http.post<any>(url,{id:idSong});
   }
 
+  removeSong(song:Song,idPlaylist:string):Observable<any>{
+    const url:string = PlaylistsService.PLAYLIST_PATH + '/' + idPlaylist + '/songs/' + song.id;
+    return this.http.delete<any>(url);
+  }
+
 }
