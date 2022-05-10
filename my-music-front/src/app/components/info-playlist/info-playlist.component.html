@@ -4,8 +4,11 @@
         <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl }">
             <app-card-add-song [currentSongs]="songs" [idPlaylist]="id" (addSong)="addSong($event)"></app-card-add-song>
         </div>
-        <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl }" *ngFor="let s of songs">
+        <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl }" *ngFor="let s of songs | paginate: { itemsPerPage: 3, currentPage: page }">
             <app-card [song]="s" [editable]="true" (deleteSong)="deleteSong($event)"></app-card>
+        </div>
+        <div class="pagination">
+            <pagination-controls class="my-pagination" (pageChange)="page = $event" [maxSize]=5 previousLabel="Previous" nextLabel="Next" ></pagination-controls>
         </div>
     </div>
 </div>

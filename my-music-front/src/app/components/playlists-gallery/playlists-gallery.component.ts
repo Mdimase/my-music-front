@@ -11,6 +11,7 @@ import { PlaylistsService } from 'src/app/services/playlists.service';
 })
 export class PlaylistsGalleryComponent implements OnInit {
 
+  page!:number; // page actual de la paginacion
   xxl:boolean = false;  // xxl breakpoint 1600px
   playlists!:Playlist[];
 

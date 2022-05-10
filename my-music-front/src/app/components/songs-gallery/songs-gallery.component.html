@@ -40,7 +40,8 @@
             <app-card [song]="s" [editable]="false"></app-card>
         </div>
         <div class="pagination">
-            <pagination-controls (pageChange)="page = $event" [maxSize]=5 previousLabel="Previous" nextLabel="Next" ></pagination-controls>
+            <pagination-controls class="my-pagination" (pageChange)="page = $event" [maxSize]=5 previousLabel="Previous" nextLabel="Next" ></pagination-controls>
         </div>
     </div>
 </div>
+

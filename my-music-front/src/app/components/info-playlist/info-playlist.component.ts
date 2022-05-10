@@ -12,6 +12,7 @@ import { PlaylistsService } from 'src/app/services/playlists.service';
 })
 export class InfoPlaylistComponent implements OnInit {
 
+  page!:number; // page actual de la paginacion
   songs:Song[] = [];
   xxl:boolean = false;  // xxl breakpoint 1600px
   id!:string;

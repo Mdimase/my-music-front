@@ -3,9 +3,12 @@
         <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl }">
             <app-card-add (newPlaylist)="newPlaylist($event)"></app-card-add>
         </div>
-        <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl}" *ngFor="let p of playlists">
+        <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl}" *ngFor="let p of playlists | paginate: { itemsPerPage: 3, currentPage: page }">
             <app-card-playlist [name]="p.name" [id]="p.id" 
             (updatePlaylist)="updatePlaylist($event)" (deletePlaylist)="deletePlaylist($event)"></app-card-playlist>
+        </div>
+        <div class="pagination">
+            <pagination-controls class="my-pagination" (pageChange)="page = $event" [maxSize]=5 previousLabel="Previous" nextLabel="Next" ></pagination-controls>
         </div>
     </div>
 </div>
