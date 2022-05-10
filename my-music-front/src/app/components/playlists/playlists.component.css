@@ -16,6 +16,10 @@ mat-sidenav-container{
     height: 90%;
 }
 
+mat-sidenav-content{
+    overflow-y:hidden;
+}
+
 /*area de contenido principal*/
 .content {
     height: 84%;

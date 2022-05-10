@@ -1,7 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
-import { flush } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Song } from 'src/app/models/song.model';
 import { SongsService } from 'src/app/services/songs.service';
@@ -17,6 +16,7 @@ export class SongsGalleryComponent implements OnInit {
   filterForm!:FormGroup;
   genres!:string[];
   xxl:boolean = false;  // xxl breakpoint 1600px
+  page!:number; // page actual de la paginacion
   authorTag:boolean = false;  // flag para habilitar el renderizado del tag de author filtrado
   genreTag:boolean = false;  // flag para habilitar el renderizado del tag de genre filtrado
   authorInput!:string;  // author ingresado por usuario para filtrar
