@@ -1,9 +1,9 @@
 <div class="container-fluid px-5">
-    <div class="row g-5 mt-4 mb-5">
+    <div class="row g-5 mt-5 mb-4 card-size">
         <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl }">
             <app-card-add (newPlaylist)="newPlaylist($event)"></app-card-add>
         </div>
-        <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl}" *ngFor="let p of playlists | paginate: { itemsPerPage: 3, currentPage: page }">
+        <div [ngClass]="{'col-3':xxl,'col-xs-12 col-sm-6 col-xl-4':!xxl}" *ngFor="let p of playlists | paginate: { itemsPerPage: 7, currentPage: page }">
             <app-card-playlist [name]="p.name" [id]="p.id" 
             (updatePlaylist)="updatePlaylist($event)" (deletePlaylist)="deletePlaylist($event)"></app-card-playlist>
         </div>

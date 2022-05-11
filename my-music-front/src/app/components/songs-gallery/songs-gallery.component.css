@@ -7,8 +7,8 @@
 
 .chip{
     display: flex;
-    gap: 1em;
-    padding: .5em 1em;
+    gap: 1rem;
+    padding: .5rem 1rem;
     border-radius: 25px;
     color: white;             
 }
@@ -20,7 +20,7 @@
 .pagination{
     display: flex;
     justify-content: center;
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 

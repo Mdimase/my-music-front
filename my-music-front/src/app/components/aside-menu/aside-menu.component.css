@@ -1,16 +1,16 @@
 
 /*separacion entre el icono y la palabra*/
 .space{
-    margin-right: .5em;
+    margin-right: .5rem;
 }
 
 /*boton de navegacion*/
 .menu-button{
-    padding: .5em;
+    padding: .5rem;
     width: 100%;
     display: flex;
     align-items: center;
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 
 .menu-button:hover{
@@ -21,19 +21,18 @@
 
 /*img avatar*/
 .avatar {
-    margin-top: 2em;
-    width: 8em;
-    height: 8em;
+    margin-top: 2rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
 }
 
 /*email logged*/
 .email {
-    margin-top: .7em;
+    margin-top: 1rem;
     font-weight: 300;
-    font-size: 1.2em;
-    font-weight: 300;
-    letter-spacing: .05em;
+    font-size: 1.2rem;
+    letter-spacing: .05rem;
 }
 
 /*para emails largos que se baje overflow al proximo renglon*/
@@ -45,9 +44,13 @@
 
 /*linea horizontal divisora*/
 mat-divider {
-    margin-top: 1.5em;
-    margin-bottom: 1em;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.icon{
+    font-size: 24px;
 }
 
  

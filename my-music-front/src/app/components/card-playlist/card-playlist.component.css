@@ -5,10 +5,10 @@
 }
 
 .buttons-container{
-    padding-top: 1em;
+    padding-top: 1rem;
     display: flex;
     justify-content: center;
-    gap: 2em;
+    gap: 2rem;
 }
 
 .button{
@@ -27,6 +27,6 @@
 
 .size{
     width: 35%;
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 
