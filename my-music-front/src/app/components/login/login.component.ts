@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Observable, shareReplay } from 'rxjs';
 import { AuthenticationService } from '../../services/authentication.service';
 import Swal from 'sweetalert2';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private alertService:AlertService,
     private authenticationService: AuthenticationService) {
     this.loginForm = this.initForm();
   }
@@ -37,10 +38,14 @@ export class LoginComponent implements OnInit {
 
   // recibe un campo y determina si esta invalido o no
   // touched sera true si se ingreso al campo input
-  // dirty sera true si se singreso al campo input y se ingreso algo
+  // dirty sera true si se ingreso al campo input y se ingreso algo
   isInvalidField(field: string): boolean {
     const fieldName = this.loginForm.get(field);
     return fieldName!.invalid && (fieldName!.touched || fieldName!.dirty);
+  }
+
+  showError(field:string,error:string):boolean{
+    return this.loginForm.get(field)?.errors?.[error] && this.isInvalidField(field);
   }
 
   getMin(field: string): number {
@@ -53,41 +58,16 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(email, password)
       .subscribe({
         next: (data) => {  // login exitoso
-          this.LoginModal.fire({
-            icon: 'success',
-            title: 'Signed in successfully!'
-        })
+          this.alertService.toastSuccess('Signed in successfully!');
           this.router.navigate(['music/playlists']);  //lleva al usuario a la vista de playlists
         },
         error: (e) => {  // email/password incorrectos
-          this.LoginModal.fire({
-            icon: 'error',
-            title: 'Wrong Sign in!'
-        })
-          this.error = 'email/password incorrectos';
+          this.alertService.toastError('Wrong Sign in!');
         }
       });
   }
 
-  LoginModal = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
-
   showConstructionModal() {
-    Swal.fire({
-      position: 'top-end',
-      icon: 'info',
-      title: 'Still on construction',
-      showConfirmButton: false,
-      timer: 1500
-    })
+    this.alertService.info('Still on construction');
   }
 }
