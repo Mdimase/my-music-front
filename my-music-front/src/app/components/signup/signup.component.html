@@ -8,40 +8,47 @@
         <div class="card_login col-md-6" align="center">
           <div class="card">
             <div class="card-body text-center">
+              <h5 class="card-header background-gradient white-text text-center py-4">
+                <strong>Register</strong>
+              </h5>
               <!-- Default form register -->
-              <form class="text-center border border-light p-5">
-                <p class="h4 mb-4">Sign up</p>
-                <div class="form-row mb-4">
-                  <!-- E-mail -->
-                  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-                  <!-- Password -->
-                  <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-                  <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                    At least 8 characters and 1 digit
-                  </small>
-                  <!-- Sign up button -->
-                  <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>
-                  <!-- Social register -->
-                  <p>or sign up with:</p>
-                  <a type="button" class="light-blue-text mx-2">
-                    <mdb-icon fab icon="facebook"></mdb-icon>
-                  </a>
-                  <a type="button" class="light-blue-text mx-2">
-                    <mdb-icon fab icon="twitter"></mdb-icon>
-                  </a>
-                  <a type="button" class="light-blue-text mx-2">
-                    <mdb-icon fab icon="linkedin"></mdb-icon>
-                  </a>
-                  <a type="button" class="light-blue-text mx-2">
-                    <mdb-icon fab icon="github"></mdb-icon>
-                  </a>
-                  <hr>
-                  <!-- Terms of service -->
-                  <p>By clicking
-                    <em>Sign up</em> you agree to our
-                    <a type="button" class="light-blue-text" (click)="openModal()">terms of service</a>
-                  </p>
+              <form class="text-center border border-light p-5" novalidate>
+                <!-- E-mail -->
+                <div class="md-form">
+                  <input mdbInput mdbValidate type="text" id="defaultRegisterFormEmail" class="form-control mb-4 p-2" placeholder="E-mail">
+                  <!-- <mdb-error *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</mdb-error>
+                  <mdb-error *ngIf="loginForm.get('email')?.errors?.['minlength']">Email must be longer than {{getMin("email")}} characters.</mdb-error>
+                  <mdb-error *ngIf="loginForm.get('email')?.errors?.['pattern']">Please enter valid email</mdb-error> -->
                 </div>
+                <!-- Password -->
+                <div class="md-form">
+                  <input mdbInput mdbValidate type="password" id="defaultRegisterFormPassword" class="form-control mb-4 p-2" placeholder="Password">
+                  <!-- <mdb-error *ngIf="loginForm.get('password')?.errors?.['required']">Please enter password</mdb-error>
+                  <mdb-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                    Password must be longer than {{getMin("password")}} characters.</mdb-error> -->
+                </div>
+                <!-- Sign up button -->
+                <button mdbBtn block="true" class="my-4 background-gradient text-light" type="submit">Sign Up</button>
+                <!-- Social register -->
+                <p>or sign up with:</p>
+                <a type="button" style="color: #0023D5" class="mx-2" (click)="showConstructionModal()">
+                  <mdb-icon fab icon="facebook"></mdb-icon>
+                </a>
+                <a type="button" style="color: #0023D5" class="mx-2" (click)="showConstructionModal()">
+                  <mdb-icon fab icon="twitter"></mdb-icon>
+                </a>
+                <a type="button" style="color: #0023D5" class="mx-2" (click)="showConstructionModal()">
+                  <mdb-icon fab icon="linkedin"></mdb-icon>
+                </a>
+                <a type="button" style="color: #0023D5" class="mx-2" (click)="showConstructionModal()">
+                  <mdb-icon fab icon="github"></mdb-icon>
+                </a>
+                <hr>
+                <!-- Terms of service -->
+                <p>By clicking
+                  <em><strong>Sign up</strong></em> you agree to our
+                  <a type="button" style="color: #0023D5; text-decoration: underline" (click)="openModal()">terms of service</a>
+                </p>
               </form>
               <!-- Default form register -->
             </div>

@@ -1,5 +1,5 @@
 // import libreria pagination
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -16,8 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 
 // imports de angular material
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -29,7 +29,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 //import de mdboostrap
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { InputsModule, InputUtilitiesModule, WavesModule, ButtonsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardComponent } from './components/card/card.component';
 import { TermsandconditionsComponent } from './components/termsandconditions/termsandconditions.component';
 import { CardPlaylistComponent } from './components/card-playlist/card-playlist.component';
@@ -75,13 +75,17 @@ import { CardAddSongComponent } from './components/card-add-song/card-add-song.c
     MatButtonModule,
     MatDialogModule,
     MdbModalModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    InputsModule,
+    InputUtilitiesModule,
+    WavesModule,
+    ButtonsModule,
   ],
-  providers: [AuthenticationService,PlaylistsService,
-    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
-    {provide:HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true}
+  providers: [AuthenticationService, PlaylistsService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

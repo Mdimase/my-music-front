@@ -1,4 +1,5 @@
 <!-- https://mdbootstrap.com/docs/angular/getting-started/installation/ MDBoostrap Instalacion -->
+
 <body class="justify-content-center" style="background-image: url(assets/fondo2.jpg);">
   <div class="card-body text-center">
     <img class="images" src="assets/mymusicbanner.png" alt="Welcome to MyMusic App!">
@@ -9,60 +10,44 @@
         <div class="card_login col-md-6" align="center">
           <div class="card">
             <div class="card-body text-center">
-              <h5 class="card-header info-color white-text text-center py-4">
+              <h5 class="card-header background-gradient white-text text-center py-4">
                 <strong>Sign in</strong>
               </h5>
               <!-- Default form login -->
               <form class="text-center border border-light p-5" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
                 <!-- Email -->
                 <div class="md-form">
-                  <input type="text" id="defaultLoginFormEmail" class="form-control mb-4 p-2" placeholder="E-mail" formControlName="email" [ngClass]="{'is-invalid': isInvalidField('email')}">
-                  <div class="alert alert-danger invalid-feedback" role="alert">
-                    <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</div>
-                    <div *ngIf="loginForm.get('email')?.errors?.['minlength']">
-                      Email must be longer than {{getMin("email")}} characters.
-                    </div>
-                    <div *ngIf="loginForm.get('email')?.errors?.['pattern']">Please enter valid email</div>
-                  </div>
+                  <input mdbInput mdbValidate type="text" id="defaultLoginFormEmail" class="form-control mb-4 p-2" placeholder="E-mail" formControlName="email" [ngClass]="{'is-invalid': isInvalidField('email')}">
+                  <mdb-error *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</mdb-error>
+                  <mdb-error *ngIf="loginForm.get('email')?.errors?.['minlength']">Email must be longer than {{getMin("email")}} characters.</mdb-error>
+                  <mdb-error *ngIf="loginForm.get('email')?.errors?.['pattern']">Please enter valid email</mdb-error>
+
                 </div>
                 <!-- Password -->
                 <div class="md-form">
-                  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4 p-2" placeholder="*****" formControlName="password" [ngClass]="{'is-invalid': isInvalidField('password')}">
-                  <div class="alert alert-danger invalid-feedback" role="alert">
-                    <div *ngIf="loginForm.get('password')?.errors?.['required']">Please enter password</div>
-                    <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
-                      Password must be longer than {{getMin("password")}} characters.
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-around">
-                  <div>
-                    <!-- Remember me -->
-                    <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
-                  </div>
-                  <div>
-                    <!-- Forgot password -->
-                    <a href="">Forgot password?</a>
-                  </div>
+                  <input mdbInput mdbValidate type="password" id="defaultLoginFormPassword" class="form-control mb-4 p-2" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': isInvalidField('password')}">
+                  <mdb-error *ngIf="loginForm.get('password')?.errors?.['required']">Please enter password</mdb-error>
+                  <mdb-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                    Password must be longer than {{getMin("password")}} characters.</mdb-error>
                 </div>
                 <!-- Sign in button -->
-                <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+                <button mdbBtn block="true" class="my-4 background-gradient text-light" type="submit">Sign in</button>
                 <!-- Register -->
                 <p>Not a member?
-                  <a href="/signup">Register</a>
+                  <a href="/signup" style="color: #0023D5; text-decoration: underline">Register</a>
                 </p>
                 <!-- Social login -->
                 <p>or sign in with:</p>
-                <a type="button" class="light-blue-text mx-2">
+                <a type="button" style="color: #0023D5" class="mx-2" (click)="showConstructionModal()">
                   <mdb-icon fab icon="facebook"></mdb-icon>
                 </a>
-                <a type="button" class="light-blue-text mx-2">
+                <a type="button" style="color: #0023D5" class="mx-2" (click)="showConstructionModal()">
                   <mdb-icon fab icon="twitter"></mdb-icon>
                 </a>
-                <a type="button" class="light-blue-text mx-2">
+                <a type="button" style="color: #0023D5" class="mx-2" (click)="showConstructionModal()">
                   <mdb-icon fab icon="linkedin"></mdb-icon>
                 </a>
-                <a type="button" class="light-blue-text mx-2">
+                <a type="button" style="color: #0023D5" class="mx-2" (click)="showConstructionModal()">
                   <mdb-icon fab icon="github"></mdb-icon>
                 </a>
               </form>
