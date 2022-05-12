@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { TermsandconditionsComponent } from '../termsandconditions/termsandconditions.component';
 import Swal from 'sweetalert2';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent {
 
   modalRef: MdbModalRef<TermsandconditionsComponent> | null = null;
 
-  constructor(public modalService: MdbModalService) { }
+  constructor(public modalService: MdbModalService, private alertService:AlertService) { }
 
   config = {
     backdrop: true,
@@ -25,12 +26,6 @@ export class SignupComponent {
   }
 
   showConstructionModal() {
-    Swal.fire({
-      position: 'top-end',
-      icon: 'info',
-      title: 'On construction here too',
-      showConfirmButton: false,
-      timer: 1500
-    })
+    this.alertService.info('On construction here too');
   }
 }
