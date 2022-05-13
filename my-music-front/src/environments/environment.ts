@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:8000/mymusic/app'
+  API_URL: 'http://localhost:8080/mymusic/app'
 };
 
 /*
