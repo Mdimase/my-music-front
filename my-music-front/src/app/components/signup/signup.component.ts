@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { TermsandconditionsComponent } from '../termsandconditions/termsandconditions.component';
 import Swal from 'sweetalert2';
 import { AlertService } from 'src/app/services/alert.service';
 import { SignupService } from 'src/app/services/signup.service';
@@ -16,12 +14,9 @@ export class SignupComponent implements OnInit {
 
   error: string = '';  //mensaje de error ante un mal registro
 
-  modalRef: MdbModalRef<TermsandconditionsComponent> | null = null;
-
   signupForm!: FormGroup;
 
-  constructor(public modalService: MdbModalService,
-    private alertService: AlertService,
+  constructor(private alertService: AlertService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -70,15 +65,6 @@ export class SignupComponent implements OnInit {
       });
   }
 
-  config = {
-    backdrop: true,
-    modalClass: 'modal-dialog-scrollable modal-xl'
-  }
-
-  openModal() {
-    this.modalRef = this.modalService.open(TermsandconditionsComponent, this.config);
-  }
-  
   showConstructionModal() {
     this.alertService.info('On construction here too');
   }

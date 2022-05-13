@@ -29,7 +29,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 //import de mdboostrap
-import { InputsModule, InputUtilitiesModule, WavesModule, ButtonsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
+import { InputsModule, InputUtilitiesModule, ModalModule, WavesModule, ButtonsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardComponent } from './components/card/card.component';
 import { TermsandconditionsComponent } from './components/termsandconditions/termsandconditions.component';
 import { CardPlaylistComponent } from './components/card-playlist/card-playlist.component';
