@@ -1,3 +1,8 @@
+/*contenedor principal menu + header + gallery*/
+mat-sidenav-container{
+    height: 92%;
+}
+
 /*menu sidebar*/
 mat-sidenav{
     height: 95%;
@@ -13,20 +18,15 @@ mat-sidenav{
     text-align: center;
 }
 
-/*contenedor principal menu + header + gallery*/
-mat-sidenav-container{
-    height: 92%;
-}
-
 mat-sidenav-content{
     height: 96%;
     margin-top: 1rem;
-    overflow-y:hidden;
+    overflow: hidden;
 }
 
 /*area de contenido principal*/
 .content {
-    height: 89%;
+    height: 88%;
     width: 92%;
     border-radius: 10px;
     margin-left: 4%;

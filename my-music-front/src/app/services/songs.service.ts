@@ -10,7 +10,6 @@ import { Song } from '../models/song.model';
 export class SongsService {
 
   static readonly SONGS_PATH = environment.API_URL + '/songs';
-
   genres:string[] = ['ROCK','POP','TECHNO','JAZZ','FOLK','CLASSICAL'];  
 
   constructor(private http:HttpClient){

@@ -1,8 +1,10 @@
 .footer{
     display: flex;
-    flex-direction: column;
+    z-index: 1000;
     width: 100%;
-    position: fixed;
+    flex-direction: column;
+    position: absolute;
+    height: auto;
     bottom: 0;
     background-color: black;
     color:white;
@@ -10,10 +12,17 @@
     background-size:auto;
 }
 
+.footer :first-child{
+    margin-top: .5rem;
+}
+
+.footer :last-child{
+    margin-bottom: .3rem;
+}
+
 p{
     font-size: .8rem;
     text-align: center;
     letter-spacing: .05rem;
     margin-bottom: 0;
-    padding: .4rem;
 }

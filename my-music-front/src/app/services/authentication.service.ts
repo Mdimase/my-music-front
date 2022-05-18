@@ -1,17 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map, shareReplay } from 'rxjs/operators';
-import { BehaviorSubject, Observable } from 'rxjs';
-
-/**
- * El servicio de autenticación es utilizado para iniciar o cerrar sesión.
- * *
- * El método login() envía las credenciales del usuario a la API mediante un request de tipo post.
- * Si el login tiene éxito, se almacena localmente el usuario con su JWT.
- *
- * El método logout() elimina el objeto User actual del almacenamiento local.
- */
+import { map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

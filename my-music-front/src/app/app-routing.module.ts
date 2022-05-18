@@ -9,7 +9,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { InfoPlaylistComponent } from './components/info-playlist/info-playlist.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 
-//modulo de navegacion. reglas de navegacion
+// modulo de navegacion
 // determina que componente atiende/responde a una determinada ruta
 
 const routes: Routes = [

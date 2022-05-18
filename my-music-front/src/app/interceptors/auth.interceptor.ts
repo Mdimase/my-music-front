@@ -11,8 +11,6 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService:AuthenticationService) {}
 
   /*metodo intercept para agregar JWT token en el headers de las request*/
-   // se crea una nueva request a partir de la anterior
-
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
     if(this.authService.token != null){
       request = request.clone({
