@@ -1,18 +1,16 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { Playlist } from 'src/app/models/playlist.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import Swal from 'sweetalert2';
-import { TermsandconditionsComponent } from '../termsandconditions/termsandconditions.component';
 
 @Component({
   selector: 'app-card-playlist',
   templateUrl: './card-playlist.component.html',
   styleUrls: ['./card-playlist.component.css']
 })
-export class CardPlaylistComponent implements OnInit {
+export class CardPlaylistComponent{
 
   @Input() name!:string;
   @Input() id!:string;
@@ -20,9 +18,6 @@ export class CardPlaylistComponent implements OnInit {
   @Output() deletePlaylist = new EventEmitter<Playlist>();
 
   constructor(private playlistService:PlaylistsService,private alertService:AlertService,private router:Router) { }
-
-  ngOnInit(): void {
-  }
 
   /* modal para que el usuario ingrese el nuevo nombre de una playlist */
   /* funciona con una promesa asincrona que se resuelve cuando se presiona el boton update */

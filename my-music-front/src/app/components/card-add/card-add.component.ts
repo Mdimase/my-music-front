@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Playlist } from 'src/app/models/playlist.model';
-import { Song } from 'src/app/models/song.model';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import Swal from 'sweetalert2';
 

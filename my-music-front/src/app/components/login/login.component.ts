@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
-import Swal from 'sweetalert2';
 import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   constructor(private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
     private alertService:AlertService,
     private authenticationService: AuthenticationService) {
@@ -44,10 +42,12 @@ export class LoginComponent implements OnInit {
     return fieldName!.invalid && (fieldName!.touched || fieldName!.dirty);
   }
 
+  // determina si un campo contiene errores
   showError(field:string,error:string):boolean{
     return this.loginForm.get(field)?.errors?.[error] && this.isInvalidField(field);
   }
 
+  // valor minimo de caracteres
   getMin(field: string): number {
     return this.loginForm.get(field) ?.errors ?.['minlength'].requiredLength;
   }

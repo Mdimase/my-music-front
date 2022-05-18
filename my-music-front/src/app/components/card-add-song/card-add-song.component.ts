@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Song } from 'src/app/models/song.model';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import { SongsService } from 'src/app/services/songs.service';
@@ -40,7 +40,7 @@ export class CardAddSongComponent{
   // canciones para agregar de cada genero
   // en formato necesario para sweet modal input select
   availableSongsByGenre(genre:string){
-    const songs:any = []; // [{id:idSong1, name:song name 1}, {id:idSOng 1,name: song name 2}, etc]
+    const songs:any = []; // [{id:idSong1, name:song name 1}, {id:idSOng 2,name: song name 2}, etc]
     this.availableSongs.map((s)=>{
       if(s.genre === genre){
         songs.push({

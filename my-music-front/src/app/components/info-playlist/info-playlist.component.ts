@@ -44,6 +44,7 @@ export class InfoPlaylistComponent implements OnInit {
     this.alertService.success("Song added succesfully");
   }
 
+  // eliminar cancion de la lista en memoria de canciones de esta playlist
   deleteSong(song:Song):void{
     this.songs = this.songs.filter((s)=>s.id !== song.id);
     this.alertService.success("Song removed succesfully");

@@ -10,6 +10,7 @@ export class FooterComponent {
 
   constructor() { }
 
+  // gato volador
   showNyanModal() {
     Swal.fire({
       title: 'Esto solo vale un 10, lo demás es relleno :P',

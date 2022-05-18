@@ -54,7 +54,7 @@ export class PlaylistsGalleryComponent implements OnInit {
   /* eliminar playlist de la coleccion en memoria */
   deletePlaylist(playlist:Playlist):void{
     this.playlists = this.playlists.filter((p) => p.id !== playlist.id);
-    this.alertService.success("Song added succesfully");
+    this.alertService.success("Playlist deleted succesfully");
   }
 
 }
